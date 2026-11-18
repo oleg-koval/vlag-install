@@ -1,0 +1,11 @@
+VLAG SELF-HOSTED ALPHA
+
+The Vlag runtime images and installation bundle are provided under the
+accompanying Vlag Self-hosted Alpha Evaluation License (LICENSE). Evaluation
+permission does not grant private source access or production-use rights.
+Compiled binaries and browser assets remain inspectable.
+
+Third-party components retain their own licenses and notices; those licenses
+are not replaced by the Vlag evaluation terms. The separately published SDK
+retains its MIT license. Release scans and installation/upgrade acceptance
+must be checked for the exact version; this notice does not certify them.

@@ -1,0 +1,38 @@
+services:
+  db:
+    image: ${VLAG_POSTGRES_IMAGE:?Set the release PostgreSQL image digest}
+    environment:
+      POSTGRES_DB: flag_platform
+      POSTGRES_USER: flag_platform
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:?Set DATABASE_PASSWORD}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U flag_platform -d flag_platform"]
+      interval: 3s
+      timeout: 3s
+      retries: 30
+  backend:
+    image: ${VLAG_BACKEND_IMAGE:?Set the release backend image digest}
+    environment:
+      DATABASE_URL: jdbc:postgresql://db:5432/flag_platform
+      DATABASE_USER: flag_platform
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD:?Set DATABASE_PASSWORD}
+      FLAG_PLATFORM_PRIVACY_SECRET: ${FLAG_PLATFORM_PRIVACY_SECRET:?Set privacy secret}
+      COOKIE_SECURE: ${COOKIE_SECURE:-false}
+      PUBLIC_DASHBOARD_URL: ${PUBLIC_DASHBOARD_URL:-http://localhost:8080}
+      JAVA_TOOL_OPTIONS: -Xmx768m -Xss1m
+    mem_limit: 1g
+    depends_on:
+      db:
+        condition: service_healthy
+  web:
+    image: ${VLAG_WEB_IMAGE:?Set the release web image digest}
+    ports:
+      - "127.0.0.1:${VLAG_PORT:-8080}:8080"
+    mem_limit: 256m
+    depends_on:
+      backend:
+        condition: service_healthy
+volumes:
+  pgdata:

@@ -1,0 +1,21 @@
+Vlag Self-hosted Alpha Evaluation License
+Copyright (c) 2026 Oleg Koval. All rights reserved.
+
+You may download, run and make backup copies of the Vlag runtime images and
+installation bundle supplied by Oleg Koval, without charge, solely for your
+internal, non-production evaluation of the self-hosted alpha.
+
+This permission does not grant access to the private Vlag source repository,
+rights to redistribute or sublicense Vlag, or rights to offer Vlag as a service
+to third parties. Production use requires separate written permission from
+Oleg Koval. Keep this license and the accompanying notices with your copies.
+
+Third-party components remain governed by their own licenses. Nothing in this
+license limits rights those licenses grant or overrides their requirements.
+The separately published @olegkoval/vlag-sdk retains its existing MIT license.
+
+The alpha is provided "AS IS", without warranty of any kind, express or implied,
+including merchantability, fitness for a particular purpose and noninfringement.
+To the extent permitted by applicable law, Oleg Koval is not liable for claims,
+damages or other liability arising from use of the alpha. No support, SLA,
+production readiness, data durability or compatibility promise is included.
